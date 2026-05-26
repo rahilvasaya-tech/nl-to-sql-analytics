@@ -1,1 +1,0 @@
-# nl-to-sql-analytics
