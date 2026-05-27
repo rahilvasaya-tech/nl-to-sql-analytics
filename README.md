@@ -7,13 +7,13 @@ An enterprise-grade natural language analytics platform that converts user quest
 
 ## Architecture Diagram
 
-![NL Analytics Architecture](architecture.png)
+![NL Analytics Architecture](architecture/architecture.png)
 
 ---
 
 ## User Interface
 
-![Analytics Interface](ui-interface.png)
+![Analytics Interface](ui/ui-interface.png)
 
 The interface provides a conversational analytics experience with a query panel on the left and results panel on the right. Users ask questions in plain English and receive KPI cards, charts, an AI-generated summary, and a data table. No SQL is ever visible to the user.
 
