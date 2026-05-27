@@ -7,7 +7,15 @@ An enterprise-grade natural language analytics platform that converts user quest
 
 ## Architecture Diagram
 
-![NL Analytics Architecture](architecture/architecture-nl-analytics.png)
+![NL Analytics Architecture](architecture.png)
+
+---
+
+## User Interface
+
+![Analytics Interface](ui-interface.png)
+
+The interface provides a conversational analytics experience with a query panel on the left and results panel on the right. Users ask questions in plain English and receive KPI cards, charts, an AI-generated summary, and a data table. No SQL is ever visible to the user.
 
 ---
 
@@ -118,6 +126,47 @@ Rule-based, not LLM-driven. Deterministic and predictable.
 | Part of whole | Pie chart |
 | Two numeric variables | Scatter plot |
 | Many rows and columns | Table |
+
+---
+
+## Frontend Layer
+
+The analytics interface uses a two-panel layout built with React and Tailwind CSS.
+
+### Left Panel: Query Panel
+- Natural language input box for asking data questions
+- Suggested query chips for common analytics queries
+- Analyze button to submit the question
+- Security notice confirming queries are validated before execution
+
+### Right Panel: Results Panel
+- KPI cards showing key metrics with trend indicators
+- Dynamic chart rendered based on data shape (bar, line, pie, or table)
+- AI-generated natural language summary of the result
+- Data table showing underlying figures
+- Follow-up question input at the bottom for conversational analytics
+
+### Design Decisions
+
+**Why never show SQL to the user?**
+Exposing generated SQL reveals table names, column names, and database structure. This is a significant security risk as it gives attackers a map of the database schema.
+
+**Why rule-based chart selection?**
+Chart type is determined by the shape of the data returned, not by LLM judgment. A time series always renders as a line chart. A single metric always renders as a KPI card. This is deterministic, fast, and consistent.
+
+**Why an AI summary below the chart?**
+Charts show what the data looks like. The AI summary explains what it means. Together they give users both the visual pattern and the business interpretation without requiring data analysis skills.
+
+### Frontend Tech Stack
+
+| Component | Technology |
+|---|---|
+| Framework | React |
+| Styling | Tailwind CSS |
+| Charts | Predefined chart templates |
+| API Integration | REST API via FastAPI backend |
+| Authentication | Azure AD / JWT / RBAC |
+| Hosting | Azure App Services |
 
 ---
 
