@@ -7,7 +7,7 @@ An enterprise-grade natural language analytics platform that converts user quest
 
 ## Architecture Diagram
 
-![NL Analytics Architecture](architecture/architecture.png)
+![NL Analytics Architecture](architecture/architecture-nl-analytics.png)
 
 ---
 
